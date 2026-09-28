@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Negociación y Firma de los Tratados Torrijos-Carter | Blog Histórico</title>
+    <style>
+        /* ==========================================================
+           VARIABLES Y ESTILOS GLOBALES
+        ========================================================== */
+        :root {
+            --bg: #0f1115;
+            --surface: #1a1d24;
+            --surface-2: #232732;
+            --border: #2f3441;
+            --text: #e8eaed;
+            --text-dim: #9aa0a6;
+            --accent: #c8102e;
+            --accent-2: #005293;
+            --gold: #d4af37;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* ==========================================================
+           NAVEGACIÓN
+        ========================================================== */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(15, 17, 21, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-container img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        /* ==========================================================
+           BOTONES DE NAVEGACIÓN ANIMADOS
+        ========================================================== */
+        .nav-links a {
+            position: relative;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.3rem 0;
+            transition: color 0.3s ease, transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        /* Línea inferior animada */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+            transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* Efecto al pasar el mouse */
+        .nav-links a:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Efecto de brillo sutil */
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.25), transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .nav-links a:hover::before {
+            width: 120px;
+            height: 120px;
+        }
+
+        /* ==========================================================
+           HERO CON IMAGEN DE FONDO TRANSPARENTE Y ANIMACIONES
+        ========================================================== */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 6rem 2rem 5rem;
+            background: linear-gradient(135deg, #0f1115 0%, #1a1d24 100%);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+            background-image: url('imagen12.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            /* Animación de entrada */
+            animation: heroFadeIn 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(15, 17, 21, 0.92) 0%, rgba(26, 29, 36, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Título con animación de escritura y brillo */
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: tituloBrillo 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes tituloBrillo {
+            from {
+                filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.3));
+            }
+            to {
+                filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.7));
+            }
+        }
+
+        .hero p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        .hero-meta span {
+            padding: 0.4rem 1rem;
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+        }
+
+        /* ==========================================================
+           CONTENEDOR PRINCIPAL
+        ========================================================== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 80px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem;
+            color: var(--text);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-dim);
+        }
+
+        b {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        i {
+            color: var(--text);
+            font-style: italic;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--gold);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background-color: var(--surface);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            font-style: normal;
+        }
+
+        /* ==========================================================
+           LÍNEA DE TIEMPO
+        ========================================================== */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent), var(--gold));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.65rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            border: 2px solid var(--bg);
+        }
+
+        .timeline-item .year {
+            font-weight: bold;
+            color: var(--gold);
+            font-size: 1rem;
+        }
+
+        .timeline-item .event {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================================
+           IMÁGENES
+        ========================================================== */
+        .imagen-block {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .imagen-block h3 {
+            color: var(--gold);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .imagen-placeholder {
+            background-color: var(--surface-2);
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            padding: 3rem 1rem;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .imagen-descripcion {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        /* ==========================================================
+           VIDEO PLACEHOLDERS
+        ========================================================== */
+        .video-block {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .video-block h3 {
+            color: var(--gold);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .video-block h3::before {
+            content: '▶';
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        .video-placeholder {
+            background-color: var(--surface-2);
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            padding: 3rem 1rem;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .video-description {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        /* ==========================================================
+           TARJETAS DE INTEGRANTES
+        ========================================================== */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .team-card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold);
+        }
+
+        .team-card .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .team-card .name {
+            font-weight: bold;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .team-card .role {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        /* ==========================================================
+           FRASE MOTIVADORA
+        ========================================================== */
+        .motivational {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin: 3rem 0 1rem;
+            background: linear-gradient(90deg, rgba(200, 16, 46, 0.1), rgba(212, 175, 55, 0.1));
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .motivational::before {
+            content: '❝';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            color: var(--gold);
+            background-color: var(--bg);
+            padding: 0 1rem;
+            line-height: 1;
+        }
+
+        .motivational p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text);
+            max-width: 600px;
+            margin: 0 auto 1rem;
+            line-height: 1.6;
+        }
+
+        .motivational .autor {
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================================
+           BIBLIOGRAFÍA
+        ========================================================== */
+        .biblio {
+            background-color: var(--surface);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .biblio ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .biblio li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        .biblio li:last-child {
+            border-bottom: none;
+        }
+
+        /* ==========================================================
+           FOOTER
+        ========================================================== */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================================
+           RESPONSIVE
+        ========================================================== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .nav-links { gap: 0.8rem; font-size: 0.8rem; }
+            .container { padding: 2rem 1rem; }
+            h2 { font-size: 1.5rem; }
+        }
+
+        /* ==========================================================
+           ANIMACIONES DE SECCIONES
+        ========================================================== */
+        .animar {
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .animar.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Retraso especial para la sección Contexto */
+        #contexto.animar {
+            transition-delay: 0.1s;
+        }
+
+        /* Efecto de resplandor en las tarjetas al pasar el mouse */
+        .team-card, .imagen-block, .video-block, .biblio {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .team-card:hover, .imagen-block:hover, .video-block:hover, .biblio:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+            border-color: var(--gold);
+        }
+
+        /* Efecto de aparición para la línea de tiempo */
+        .timeline-item {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="imagen11.png" alt="Logo del Instituto Sun Yat Sen" style="width: 70px; height: 70px;">
+                <div class="logo">NEGOCIACIÓN Y FIRMA DE LOS TRATADOS TORRIJOS-CARTER</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#contexto">Contexto</a></li>
+                <li><a href="#negociacion">Negociación</a></li>
+                <li><a href="#firma">Firma</a></li>
+                <li><a href="#ratificacion">Ratificación</a></li>
+                <li><a href="#legado">Legado</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#bibliografia">Bibliografía</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="inicio">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>La Negociación y Firma de los Tratados Torrijos-Carter</h1>
+            <p>Un recorrido histórico por el proceso que devolvió el Canal de Panamá a manos panameñas. Desde el incidente de la bandera hasta la entrada en vigor en 1979 y la transferencia total en 1999.</p>
+            <div class="hero-meta">
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section id="contexto" class="animar">
+            <h2>1. Contexto Histórico</h2>
+
+            <p>
+                El Canal de Panamá fue construido por Estados Unidos entre 1904 y 1914. Mediante el <b>Tratado Hay-Bunau-Varilla de 1903</b>, Estados Unidos obtuvo el control perpetuo de una franja de 10 millas de ancho conocida como la <b>Zona del Canal</b>, además del derecho a intervenir en los asuntos internos de Panamá.
+            </p>
+            <p>
+                Durante décadas, la presencia estadounidense en territorio panameño generó tensiones. Los panameños veían la Zona del Canal como un enclave colonial, con sus propias leyes, escuelas y sistemas de justicia, ajenos a la soberanía nacional.
+            </p>
+
+            <div class="imagen-block">
+                <h3>Antecedentes del Canal</h3>
+                <img src="imagen3.jpeg" alt="Descripción de la imagen" style="width:100%; border-radius:8px;">
+                <p class="imagen-descripcion">Imagen 1.1: Inicios de la construcción del canal de Panamá.</p>
+            </div>
+
+            <h3>El Incidente de la Bandera (9 de enero de 1964)</h3>
+            <p>
+                Estudiantes panameños intentaron izar la bandera de Panamá junto a la de Estados Unidos en la Escuela Secundaria de Balboa, dentro de la Zona del Canal. La negativa y la violencia posterior dejaron <b>21 panameños y 4 soldados estadounidenses muertos</b>. Este hecho marcó un antes y un después en la relación bilateral y llevó a Panamá a romper relaciones diplomáticas con Estados Unidos.
+            </p>
+            <blockquote>
+                La bandera de Panamá debe ondear en la Zona del Canal. No pedimos un favor, exigimos un derecho.
+                <cite>— Sentimiento nacional panameño tras 1964</cite>
+            </blockquote>
+
+            <div class="imagen-block">
+                <h3>Acontecimientos del 9 de enero de 1964</h3>
+                <img src="imagen4.jpg" alt="Descripción de la imagen" style="width:100%; border-radius:8px;">
+                <p class="imagen-descripcion">Imagen 1.2: Estudiantes panameños del Instituto Nacional de Panamá.</p>
+            </div>
+
+            <h3>Intentos previos de negociación</h3>
+            <p>
+                En 1967 se firmaron los <b>Tratados Robles-Johnson</b>, que buscaban reemplazar el tratado de 1903, pero nunca fueron ratificados por ninguno de los dos países. En 1973, Panamá llevó el caso ante la <b>ONU</b>, donde obtuvo el apoyo de la mayoría de los países para una resolución que instaba a Estados Unidos a negociar un nuevo tratado.
+            </p>
+        </section>
+
+        <section id="negociacion" class="animar">
+            <h2>2. La Negociación (1974 – 1977)</h2>
+
+            <p>
+                En 1974, el secretario de Estado estadounidense <b>Henry Kissinger</b>, y el canciller panameño <b>Juan Antonio Tack</b> firmaron un acuerdo de ocho principios que serviría como base para las negociaciones. Entre ellos se reconocía la soberanía panameña sobre la Zona del Canal y se establecía un plazo para la transferencia.
+            </p>
+            <p>
+                Las negociaciones formales comenzaron en 1975 y se extendieron por más de dos años. Los principales puntos de discusión fueron:
+            </p>
+            <ul style="color: var(--text-dim); padding-left: 1.5rem; margin-bottom: 1rem;">
+                <li>La duración del tratado y la fecha de transferencia del Canal.</li>
+                <li>La neutralidad permanente del Canal y el derecho de Estados Unidos a defenderlo.</li>
+                <li>La presencia militar estadounidense durante el periodo de transición.</li>
+                <li>La jurisdicción y las tierras de la antigua Zona del Canal.</li>
+            </ul>
+
+            <div class="imagen-block">
+                <h3>Autores de la Negociación</h3>
+                <img src="imagen12.jpeg" alt="Descripción de la imagen" style="width:100%; border-radius:8px;">
+                <p class="imagen-descripcion">Imagen 2.1: Reunión entre el secretario de Estado estadounidense, Henry Kissinger, y el canciller panameño, Juan Antonio Tack.</p>
+            </div>
+
+            <p>
+                Los negociadores principales fueron <b>Ellsworth Bunker</b> y <b>Sol Linowitz</b> por Estados Unidos, y <b>Rómulo Escobar Bethancourt</b> y <b>Nicolás González Revilla</b> por Panamá. El general <b>Omar Torrijos Herrera</b>, líder de facto de Panamá, jugó un papel decisivo al mantener la presión política y diplomática.
+            </p>
+            <blockquote>
+                No queremos que el Canal sea panameño solo en el papel. Lo queremos con todas sus consecuencias.
+                <cite>— Omar Torrijos Herrera</cite>
+            </blockquote>
+        </section>
+
+        <section id="firma" class="animar">
+            <h2>3. La Firma del Tratado (7 de septiembre de 1977)</h2>
+
+            <p>
+                El <b>7 de septiembre de 1977</b>, en la sede de la <b>Organización de los Estados Americanos (OEA)</b> en Washington D.C., se firmaron dos documentos:
+            </p>
+            <ul style="color: var(--text-dim); padding-left: 1.5rem; margin-bottom: 1rem;">
+                <li><b>El Tratado Torrijos-Carter</b>: establecía la transferencia gradual del Canal a Panamá y su devolución total el <b>31 de diciembre de 1999</b>.</li>
+                <li><b>El Tratado de Neutralidad Permanente</b>: garantizaba que el Canal permaneciera neutral y abierto al tránsito de todas las naciones, incluso en tiempos de guerra.</li>
+            </ul>
+
+            <div class="imagen-block">
+                <h3>La firma del tratado</h3>
+                <img src="imagen6.jpg" alt="Descripción de la imagen" style="width:100%; border-radius:8px;">
+                <p class="imagen-descripcion">Imagen 3.1: Ceremonia de la firma de los Tratados Torrijos-Carter en Washington D.C., 7 de septiembre de 1977.</p>
+            </div>
+
+            <p>
+                La ceremonia contó con la presencia de <b>Omar Torrijos</b> (líder militar de Panamá) y <b>Jimmy Carter</b> (presidente de Estados Unidos), además de líderes de 27 países del hemisferio. Fue un momento histórico para Panamá, que veía cumplido un anhelo de décadas.
+            </p>
+            <h3>Una línea de tiempo de los hechos clave</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="year">1903</div>
+                    <div class="event">Tratado Hay-Bunau-Varilla. Estados Unidos obtiene el control del Canal.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1964</div>
+                    <div class="event">Incidente de la bandera. 21 panameños muertos.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1967</div>
+                    <div class="event">Tratados Robles-Johnson (no ratificados).</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1973</div>
+                    <div class="event">Panamá lleva el caso a la ONU. Resolución favorable.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1974</div>
+                    <div class="event">Acuerdo Kissinger-Torrijos (8 principios).</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1977</div>
+                    <div class="event">7 de septiembre: firma de los Tratados Torrijos-Carter.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1978</div>
+                    <div class="event">Ratificación en Panamá (abril) y en el Senado de Estados Unidos (marzo-abril).</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1979</div>
+                    <div class="event">1 de octubre: entrada en vigor de los tratados.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1999</div>
+                    <div class="event">31 de diciembre: transferencia total del Canal a Panamá.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ratificacion" class="animar">
+            <h2>4. Ratificación y Entrada en Vigor (1978 – 1979)</h2>
+
+            <p>
+                Tras la firma, los tratados debían ser ratificados por los órganos legislativos de ambos países. En Panamá, la población fue consultada mediante un <b>referendo el 23 de octubre de 1977</b>, donde el <b>66.1% de los votos</b> aprobó los tratados.
+            </p>
+
+            <div class="imagen-block">
+                <h3>El referendo panameño</h3>
+                <img src="imagen7.jpeg" alt="Descripción de la imagen" style="width:100%; border-radius:8px;">
+                <p class="imagen-descripcion">Imagen 4.1: Ciudadanos panameños votando en el referendo de 1977 sobre los tratados del Canal.</p>
+            </div>
+
+            <p>
+                En Estados Unidos, el proceso fue más complejo. El <b>Senado estadounidense</b> debatió los tratados durante meses, con fuerte oposición de sectores conservadores. Finalmente, el <b>16 de marzo de 1978</b> se ratificó el Tratado de Neutralidad, y el <b>18 de abril de 1978</b> se ratificó el Tratado del Canal, con enmiendas que otorgaban a Estados Unidos el derecho de intervenir militarmente para mantener la neutralidad.
+            </p>
+            <p>
+                Los tratados entraron en vigor el <b>1 de octubre de 1979</b>, dando inicio a un periodo de transición de 20 años.
+            </p>
+        </section>
+
+        <section id="legado" class="animar">
+            <h2>5. Legado e Impacto</h2>
+
+            <p>
+                Los Tratados Torrijos-Carter representaron la victoria diplomática más importante de Panamá en el siglo XX. No solo devolvieron el Canal al país, sino que restauraron la dignidad nacional y afirmaron la soberanía sobre todo el territorio.
+            </p>
+
+            <div class="imagen-block">
+                <h3>La transferencia del Canal</h3>
+                <img src="imagen8.webp" alt="Descripción de la imagen" style="width:100%; border-radius:8px;">
+                <p class="imagen-descripcion">Imagen 5.1: Ceremonia de la transferencia del Canal de Panamá el 31 de diciembre de 1999.</p>
+            </div>
+
+            <p>
+                El <b>31 de diciembre de 1999</b>, a las 12:00 del mediodía, Panamá asumió el control total del Canal. Desde entonces, la <b>Autoridad del Canal de Panamá (ACP)</b> administra la vía interoceánica, y su ampliación en 2016 ha consolidado al país como un hub logístico global.
+            </p>
+            <blockquote>
+                El Canal es de Panamá y para el mundo. Hoy somos dueños de nuestro destino.
+                <cite>— Discurso oficial del 31 de diciembre de 1999</cite>
+            </blockquote>
+            <p>
+                El legado de Torrijos y Carter trasciende lo bilateral: demostró que la diplomacia, la presión internacional y la unidad nacional pueden revertir injusticias históricas.
+            </p>
+        </section>
+
+
+
+<section id="videos" class="animar">
+    <h2>6. Videos del Equipo</h2>
+    <p>
+        Como parte del proyecto, cada integrante elaboró un video explicando un aspecto clave del proceso. A continuación se presentan los cuatro videos.
+    </p>
+
+    <div class="video-block">
+        <h3>Contexto y antecedentes (1964 – 1973)</h3>
+        <iframe 
+            width="100%" 
+            height="400" 
+            src="https://www.youtube.com/embed/s8Zxe322Dlo" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="video-block">
+        <h3>La negociación (1974 – 1977)</h3>
+        <iframe 
+            width="100%" 
+            height="400" 
+            src="https://www.youtube.com/embed/VIDEO_2" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="video-block">
+        <h3>La firma y ratificación (1977 – 1979)</h3>
+        <iframe 
+            width="100%" 
+            height="400" 
+            src="https://www.youtube.com/embed/lzE_lxXoBS8" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="video-block">
+        <h3>Legado e importancia actual</h3>
+        <iframe 
+            width="100%" 
+            height="400" 
+            src="https://www.youtube.com/embed/3Icfqo0ZqBA" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+    </div>
+</section>
+
+
+
+        <section id="equipo" class="animar">
+            <h2>7. Nuestro Equipo</h2>
+            <p>Cuatro estudiantes, cuatro perspectivas, un mismo objetivo: comprender y difundir la historia de los Tratados Torrijos-Carter.</p>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="avatar">E</div>
+                    <div class="name">Emily Luo </div>
+                    <div class="role">Contexto histórico</div>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">R</div>
+                    <div class="name">Ronaldo Hou</div>
+                    <div class="role">Negociación</div>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">S</div>
+                    <div class="name">Stephanie Ng</div>
+                    <div class="role">Firma y ratificación</div>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">C</div>
+                    <div class="name">Christian Loo</div>
+                    <div class="role">Legado e impacto</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bibliografia" class="animar">
+            <h2>8. Bibliografía y Fuentes</h2>
+
+            <div class="imagen-block">
+                <h3>Fuentes documentales</h3>
+                <img src="imagen9.jpg" alt="Descripción de la imagen" style="width:100%; border-radius:8px;">
+                <p class="imagen-descripcion">Imagen 8.1: Texto original de los Tratados Torrijos-Carter de 1977.</p>
+            </div>
+
+            <div class="biblio">
+                <ul>
+                    <li>Autoridad del Canal de Panamá. (2023). <i>Historia del Canal de Panamá</i>. https://pancanal.com</li>
+                    <li>Carter, J. (1977). <i>Discurso sobre los Tratados del Canal</i>. Organización de los Estados Americanos, Washington D.C.</li>
+                    <li>Conte-Porras, J. (2000). <i>Los Tratados Torrijos-Carter: La lucha por la soberanía</i>. Editorial Universitaria.</li>
+                    <li>Lafeber, W. (1978). <i>The Panama Canal: The Crisis in Historical Perspective</i>. Oxford University Press.</li>
+                    <li>Ministerio de Relaciones Exteriores de Panamá. (1977). <i>Textos de los Tratados Torrijos-Carter</i>.</li>
+                    <li>Torrijos, O. (1977). <i>Discursos y declaraciones sobre el Canal</i>. Biblioteca Nacional de Panamá.</li>
+                </ul>
+            </div>
+        </section>
+        <section class="motivational animar">
+            <p>La historia no la escriben los que esperan, sino los que se atreven a luchar por lo que creen justo.</p>
+            <div class="autor">— Inspirado en el legado de los Tratados Torrijos-Carter</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 — Blog histórico sobre los Tratados Torrijos-Carter | Proyecto escolar</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hecho con dedicación por Ronaldo Hou, Christian Loo, Emily Luo y Stephanie Ng.</p>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.color = 'var(--gold)';
+                }
+            });
+        });
+
+        // ==========================================================
+        // ANIMACIONES DE APARICIÓN AL HACER SCROLL
+        // ==========================================================
+        const animarElementos = document.querySelectorAll('.animar');
+
+        const observador = new IntersectionObserver((entradas) => {
+            entradas.forEach(entrada => {
+                if (entrada.isIntersecting) {
+                    entrada.target.classList.add('visible');
+
+                    // Animar los elementos de la línea de tiempo dentro de la sección
+                    const items = entrada.target.querySelectorAll('.timeline-item');
+                    items.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, index * 200);
+                    });
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        animarElementos.forEach(el => observador.observe(el));
+
+        console.log('Blog Tratados Torrijos-Carter cargado correctamente.');
+    </script>
+
+</body>
+</html>
